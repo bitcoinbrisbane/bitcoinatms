@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Bitcoin ATM fund</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,9 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
 </head>
 
 <body>
@@ -156,7 +159,12 @@
     <!-- Callout -->
     <aside class="callout">
         <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
+            <h1>Bitcoin ATMs figures</h1>
+            <h2>Sinkfund $10,000</h2>
+            <h2>Revenue 2015-2016 $3,000</h2>
+            <div id="revenue-dist"></div>
+            <h2>Dividends paid 2015-2016 $1,000</h2>
+<!--            <div id="revenue-todate"></div>-->
         </div>
     </aside>
 
@@ -270,6 +278,35 @@
             }
         });
     });
+    
+    //$(document).ready(function() {
+        Morris.Donut({
+          element: 'revenue-dist',
+          data: [
+            {label: "Brisbane", value: 2000},
+            {label: "Cairns", value: 500},
+            {label: "Airlie Beach", value: 500}
+          ]
+        });
+
+        Morris.Line({
+          // ID of the element in which to draw the chart.
+          element: 'revenue-todate',
+          // Chart data records -- each entry in this array corresponds to a point on
+          // the chart.
+          data: [
+            { year: '2014', value: 20 },
+            { year: '2015', value: 35 }
+          ],
+          // The name of the data record attribute that contains x-values.
+          xkey: 'year',
+          // A list of names of data record attributes that contain y-values.
+          ykeys: ['value'],
+          // Labels for the ykeys -- will be displayed when you hover over the
+          // chart.
+          labels: ['Value']
+        });
+    //};
     </script>
 
 </body>
